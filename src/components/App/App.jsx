@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 
 export default function App() {
-  const contacts = useSelector((state) => state.contacts.contacts.items);
+  const contacts = useSelector((state) => state.contacts.items);
 
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -15,7 +15,7 @@ export default function App() {
       <h1>Phonebook</h1>
       <ContactForm />
       <SearchBox onChange={setSearchQuery} searchQuery={searchQuery} />
-      {contacts.length === 0 ? <p>This Phonebook is empty</p> : <ContactList />}
+      {contacts === null ? <p>This Phonebook is empty</p> : <ContactList />}
     </div>
   );
 }
